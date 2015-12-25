@@ -1,0 +1,69 @@
+<!doctype html>
+<html ng-app="lottery"> 
+    <head>
+        <meta charset="utf-8">
+        <title>MerryChristmas!!!你的Xmas小任務-幫聖誕老人送禮物給:主人</title>
+        <meta name="fragment" content="!">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <script src="https://code.jquery.com/jquery.min.js"></script>
+        <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>  
+        <script src="https://code.jquery.com/jquery-1.7.2.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>                                            
+        <script type="text/javascript" src="http://sandbox.runjs.cn/uploads/rs/250/osagsqji/app.js"></script>
+        <script src="/static/js/app.js"></script>
+        <!-- link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" type="text/css" / -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+        <style type="text/css">
+            td span{display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;border:1px solid #ccc;cursor: pointer;}
+            .red{color:red;}
+            .view{height:300px;border:1px solid #ccc;}
+            .buffer{background: url(http://dev.haowa.com/img/ajax_loader.gif) center center no-repeat;}
+            .ground{width:800px;}
+            .ground .one{width:80px;height:80px;float:left;margin:5px;border:0px solid red;text-align:center;text-align:center;line-height:80px;;border-style:dashed;background-image:url('/static/images/name.png');}
+            .ground .one.active{background:#357ebd;border:1px solid #A2FF9C;color:#fff;}
+            .result{color:#f60;}
+            .scrollable-menu {height: auto; max-height: 200px;overflow-x: hidden;}
+        </style>
+        <script>
+        </script>
+    </head> 
+    <body background='/static/images/bg.png' style=' background-repeat: no-repeat;'  buffer>
+        <div style='padding:60px 500px; 0px 20px;'>
+        <div id='username' ng-show=False>{{employee}}</div>
+        <div id='gender' ng-show=False>{{gender}}</div>
+        <!-- div class="container"><p><h1>你的Xmas小任務</h1></p></div -->
+        <p></p>
+        <div class="container" ng-controller="main">
+            <h1 ng-show="warming"><span ng-bind="Message"></span></h1>
+            <img src='/static/images/decoration.png' style='width:550px;position:absolute;left:0px; top:0px;'/>
+            <img src='/static/images/olderman.png' style='width:250px;position:absolute;left:140px; top:270px;'/>
+            <img src='/static/images/Title.png' style='width:450px;position:absolute;left:50px; top:70px' />
+            <img src='/static/images/migo.png' style='width:90px;position:absolute;left:40px; top:40px;' />
+            <div class="row-fluid">
+                <div class="span3">
+                    <div><h4 style='color:white;'>請幫聖誕老人送禮物給:<img id='master' style='width:250px; margin:0px 5px 0px 5px' /><span ng-bind='result'></span></h4></div>
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span id='first'>選擇你是誰</span><span class="caret"></span></button>
+                        <ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenu1">
+                            <li ng-repeat="one in dropdown">
+                                <a style='cursor:pointer;' ng-click="start2(one.name)"><span ng-bind="one.name" style="border:1px solid #fff" size="30" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="span6" ng-show="disabled">
+                    <button class="btn btn-success btn-lg" ng-click="start()" ngDisabled="is_start">接收任務</button>
+                    <p></p>
+                    <div class="ground">
+                        <div ng-repeat="one in data" id="{{one.id}}" class="one" ng-class="{'active':one.status}" ><span ng-bind='one.name'></span></div>
+                        <!--div ng-repeat="one in data" id="{{one.id}}" class="one" ng-class="{'active':one.status}" ><img ng-src="{{one.url}}" style="width:100px;" /></div-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>
