@@ -6,4 +6,4 @@ Lottery combine Angular and Django
 
 
 # Angular using modules
-$http,
+'$http','$timeout'
